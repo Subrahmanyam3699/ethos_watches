@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style_login.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #17a2b8;
+            height: 100vh;
+        }
+
+        #login .container #login-row #login-column #login-box {
+            margin-top: 120px;
+            margin-left: 50%;
+            max-width: 600px;
+            height: 320px;
+            border: 1px solid #9C9C9C;
+            background-color: #EAEAEA;
+        }
+
+        #login .container #login-row #login-column #login-box #login-form {
+            padding: 20px;
+        }
+
+        #login .container #login-row #login-column #login-box #login-form #register-link {
+            margin-top: -85px;
+        }
+    </style>
+    <script>
+        // var usersList = [];
+        var usersList = localStorage.getItem("myObject");
+        usersList = JSON.parse(usersList);
+        usersList.forEach(function (user) {
+            console.log(user.userName);
+        });
+
+        // for (const x of usersList) { console.log(x); }
+        // console.log(localStorage.getItem("myObject"));
+        function login() {
+            var userName = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var status = false;
+            usersList.forEach(function (user) {
+                if(user.userName == userName && user.password == password){
+                    status = true;
+                }
+            });
+            if(status == true){
+                window.location.href = "home.html";
+            }else{
+                alert("Invalid Credentials!!");
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Ethos</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="home.html">Home</a></li>
+                <!-- <li><a href="menu.html">MENU</a></li> -->
+                <li><a href="contact.html">Contact Us</a></li>
+                <li class="active"><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <!-- <form id="login-form" class="form" action="home.html"> -->
+                        <h3 class="text-center text-info">Login</h3>
+                        <div class="form-group">
+                            <label for="username" class="text-info">Username:</label><br>
+                            <input type="text" name="username" id="username" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="text-info">Password:</label><br>
+                            <input type="text" name="password" id="password" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="remember-me" class="text-info"><span>Remember me</span> <span><input
+                                        id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                            <input onclick="login()" type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                        </div>
+                        <div id="register-link" class="text-right">
+                            <!-- href="register.html" -->
+                            <a href="register.html" class="text-info">Register here</a>
+                        </div>
+                        <!-- </form> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="background_img"> -->
+    <!-- <header>
+       <h1 class="heading">Ethos Premium Watches</h1>
+       <nav>
+        <a href="home.html">HOME</a>
+        <a href="menu.html">MENU</a>
+        <a href="contact.html">CONTACTS</a>
+        <a class="active" href="login.html">LOGIN</a>
+      </nav>
+   </header>  -->
+
+    <!-- <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Ethos</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="home.html">Home</a></li>
+                    <!-- <li><a href="menu.html">MENU</a></li> 
+                    <li><a href="contact.html">Contacts</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </nav> -->
+
+
+    <!-- <main>
+            <div>
+
+                <form action="#">
+                    <h2 class="color">Login</h2>
+                    <label for="username">Username</label>
+                    <input type="username" name="username" id="username">
+                    <br>
+                    <label for="pswd">Password</label>
+                    <input type="pswd" name="pswd" id="pswd">
+                    <br>
+                    <input type="submit" value="Login">
+                </form>
+            </div>
+
+            <a class="active" href="register.html">New User? | Register</a>
+        </main> -->
+
+
+    <!-- </div> -->
+</body>
+
+</html>
