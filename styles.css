@@ -1,0 +1,28 @@
+#home_watches {
+	position: relative;
+	left: 0;
+	right: 0;
+}
+
+#signupLink {
+	position: relative;
+	left: 16px;
+	top: 10px;
+}
+
+#contactForm {
+	position: relative;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 500px;
+}
+
+.form-group {
+	margin-top: 20px;
+}
+
+path {
+	fill: black;
+}
